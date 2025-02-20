@@ -47,7 +47,7 @@ publishing {
         create<MavenPublication>("release"){
             groupId = "com.example"
             artifactId = "vdid"
-            version = "1.0.0"
+            version = "1.0.1"
 
             afterEvaluate {
                 from(components["release"])
@@ -59,6 +59,6 @@ publishing {
 dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.fragment.ktx)
-    api(libs.com.innovatrics.dot.document)
+    implementation(libs.com.innovatrics.dot.document)
     implementation(libs.androidx.constraintlayout)
 }
