@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pulsame">Pulsame</string>
+    <string name="dot_document_auto_capture_instruction_brightness_too_high">Se necesita menos luz</string>
+    <string name="dot_document_auto_capture_instruction_brightness_too_low">Se necesita más luz</string>
+    <string name="dot_document_auto_capture_instruction_candidate_selection">Quédate quieto</string>
+    <string name="dot_document_auto_capture_instruction_document_does_not_fit_placeholder">Centrar documento</string>
+    <string name="dot_document_auto_capture_instruction_document_not_detected">Escanear documento</string>
+    <string name="dot_document_auto_capture_instruction_document_out_of_bounds">Centrar documento</string>
+    <string name="dot_document_auto_capture_instruction_hotspots_score_too_high">Evita reflejos</string>
+    <string name="dot_document_auto_capture_instruction_mrz_not_present">Escanea un documento válido legible por máquina</string>
+    <string name="dot_document_auto_capture_instruction_mrz_not_valid">Escanea un documento válido legible por máquina</string>
+    <string name="dot_document_auto_capture_instruction_sharpness_too_low">Se necesita más luz</string>
+    <string name="dot_document_auto_capture_instruction_size_too_small">Acércate</string>
+    <string name="vdid_document_autocapture">Autocapture</string>
+</resources>
