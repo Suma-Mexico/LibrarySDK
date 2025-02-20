@@ -3,11 +3,11 @@ package com.example.vdid
 import androidx.fragment.app.Fragment
 
 object ContentLibrary {
-    fun newInstance(): Fragment {
+    fun testFragment(): Fragment {
         return MyFragment()
     }
 
-    fun newFragment(): Fragment {
+    fun autocaptureFragment(): Fragment {
         return BasicDocumentAutoCaptureFragment()
     }
 }
