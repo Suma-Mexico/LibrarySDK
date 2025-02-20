@@ -42,6 +42,20 @@ android {
     }
 }
 
+publishing {
+    publications {
+        create<MavenPublication>("release"){
+            groupId = "com.example"
+            artifactId = "vdid"
+            version = "1.0.0"
+
+            afterEvaluate {
+                from(components["release"])
+            }
+        }
+    }
+}
+
 dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.fragment.ktx)
