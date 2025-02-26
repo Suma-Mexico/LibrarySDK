@@ -23,7 +23,7 @@ import com.innovatrics.dot.image.BitmapFactory
 import kotlinx.coroutines.launch
 import java.io.ByteArrayOutputStream
 
-class BasicDocumentAutoCaptureFragment(private val listener: OnProcessListener) :
+internal class BasicDocumentAutoCaptureFragment(private val listener: OnProcessListener) :
     DocumentAutoCaptureFragment() {
     private val dotSdkViewModel: DotSdkViewModel by activityViewModels {
         DotSdkViewModelFactory(
