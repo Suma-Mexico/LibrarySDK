@@ -83,20 +83,16 @@ class BasicDocumentAutoCaptureFragment(private val listener: OnProcessListener) 
     }
 
     override fun onNoCameraPermission() {
-        Toast.makeText(context, "No camera permission.", Toast.LENGTH_SHORT).show()
+        //Toast.makeText(context, "No camera permission.", Toast.LENGTH_SHORT).show()
+        listener.onCaptureFailed("No camera pemission")
     }
 
     override fun onCaptured(result: DocumentAutoCaptureResult) {
         val img = imageToBase64(result.bgraRawImage)
-        println("Result image base64 : ${img}")
+        //println("Result image base64 : ${img}")
         listener.onDocumentCaptured(img)
     }
 
     override fun onProcessed(detection: DocumentAutoCaptureDetection) {
-    }
-
-    fun onHello() {
-        val test = "Este mensaje de prueba proviene de la libreria"
-        listener.onTest(test)
     }
 }

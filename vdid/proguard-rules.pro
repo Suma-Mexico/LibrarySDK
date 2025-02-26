@@ -22,7 +22,7 @@
 
 # Mantener publicas solo las clases necesarias
 -keep class com.example.vdid.ContentLibrary { *; }
--keep class com.example.vdid.MyFragment { *; }
+#-keep class com.example.vdid.MyFragment { *; }
 -keep class com.example.vdid.OnProcessListener { *; }
 #-keep class com.example.vdid.BasicDocumentAutoCaptureFragment
 
