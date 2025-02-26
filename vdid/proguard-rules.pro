@@ -26,5 +26,5 @@
 -keep class com.example.vdid.OnProcessListener { *; }
 #-keep class com.example.vdid.BasicDocumentAutoCaptureFragment
 
-# Oultar y ofuscar los demás archivos
+# Evitar advertencias de los paquetes
 -dontwarn com.example.vdid.**

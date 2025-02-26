@@ -8,7 +8,7 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 
-class MyFragment : Fragment() {
+internal class MyFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
