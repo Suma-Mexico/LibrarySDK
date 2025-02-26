@@ -22,8 +22,8 @@
 
 # Mantener publicas solo las clases necesarias
 -keep class com.example.vdid.ContentLibrary { *; }
-#-keep class com.example.vdid.BasicDocumentAutoCaptureFragment
 -keep class com.example.vdid.MyFragment { *; }
+#-keep class com.example.vdid.BasicDocumentAutoCaptureFragment
 
 # Oultar y ofuscar los demás archivos
 -dontwarn com.example.vdid.**
