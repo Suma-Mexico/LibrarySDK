@@ -18,4 +18,15 @@
 
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
-#-renamesourcefileattribute SourceFile
+#-renamesourcefileattribute SourceFil
+
+# Mantener publicas solo las clases necesarias
+-keep class com.example.vdid.ContentLibrary
+-keep class com.example.vdid.BasicDocumentAutoCaptureFragment
+-keep class com.example.vdid.MyFragment
+
+# Oultar y ofuscar los demás archivos
+-dontwarn com.example.vdid.**
+-keepclassmembers class com.example.vdid.BasicDocumentAutoCaptureFragment{
+    public <init>();
+}

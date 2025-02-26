@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
-class DotSdkViewModel(
+internal class DotSdkViewModel(
     application: Application,
     private val initializeDotSdkUseCase: InitializeDotSdkUseCase,
 ) : AndroidViewModel(application) {

@@ -7,7 +7,7 @@ object ContentLibrary {
         return MyFragment()
     }
 
-    fun autocaptureFragment(): Fragment {
-        return BasicDocumentAutoCaptureFragment()
+    fun autocaptureFragment(listener: OnProcessListener): Fragment {
+        return BasicDocumentAutoCaptureFragment(listener)
     }
 }

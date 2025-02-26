@@ -23,7 +23,8 @@ import com.innovatrics.dot.image.BitmapFactory
 import kotlinx.coroutines.launch
 import java.io.ByteArrayOutputStream
 
-class BasicDocumentAutoCaptureFragment : DocumentAutoCaptureFragment() {
+class BasicDocumentAutoCaptureFragment(private val listener: OnProcessListener) :
+    DocumentAutoCaptureFragment() {
     private val dotSdkViewModel: DotSdkViewModel by activityViewModels {
         DotSdkViewModelFactory(
             requireActivity().application
@@ -86,9 +87,16 @@ class BasicDocumentAutoCaptureFragment : DocumentAutoCaptureFragment() {
     }
 
     override fun onCaptured(result: DocumentAutoCaptureResult) {
-        println("Result image base64 : ${imageToBase64(result.bgraRawImage)}")
+        val img = imageToBase64(result.bgraRawImage)
+        println("Result image base64 : ${img}")
+        listener.onDocumentCaptured(img)
     }
 
     override fun onProcessed(detection: DocumentAutoCaptureDetection) {
+    }
+
+    fun onHello() {
+        val test = "Este mensaje de prueba proviene de la libreria"
+        listener.onTest(test)
     }
 }
