@@ -46,7 +46,7 @@ internal class BasicDocumentAutoCaptureFragment(private val listener: OnProcessL
             isDetectionLayerVisible = false,
             mrzValidation = MrzValidation.NONE,
             qualityAttributeThresholds = QualityAttributeThresholds(
-                minConfidence = 0.9,
+                minConfidence = 0.95,
                 minSharpness = 0.6,
                 maxHotspotsScore = 0.6
             )

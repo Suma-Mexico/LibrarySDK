@@ -3,7 +3,7 @@ agp = "8.7.3"
 kotlin = "2.0.0"
 coreKtx = "1.15.0"
 fragmentKtx = "1.8.6"
-comInnovatricsDot = "8.6.1"
+comInnovatricsDot = "8.7.0"
 androidxConstraintLayout = "2.2.0"
 
 [libraries]
