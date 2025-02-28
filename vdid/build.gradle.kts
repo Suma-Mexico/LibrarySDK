@@ -47,7 +47,7 @@ publishing {
         create<MavenPublication>("release") {
             groupId = "com.example"
             artifactId = "vdid"
-            version = "2.0.2"
+            version = "2.0.3"
 
             afterEvaluate {
                 from(components["release"])
