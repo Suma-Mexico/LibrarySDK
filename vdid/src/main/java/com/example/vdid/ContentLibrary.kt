@@ -1,17 +1,13 @@
 package com.example.vdid
 
 import android.content.Context
-import android.graphics.Bitmap
 import android.util.Base64
 import android.util.Log
 import androidx.fragment.app.Fragment
 import com.innovatrics.dot.core.DotSdk
-import com.innovatrics.dot.image.BgraRawImage
-import com.innovatrics.dot.image.BitmapFactory
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import java.io.ByteArrayOutputStream
 
 object ContentLibrary {
     private var currentFragment: BasicDocumentAutoCaptureFragment? = null
@@ -89,7 +85,6 @@ object ContentLibrary {
         }
 
         CoroutineScope(Dispatchers.IO).launch {
-            Log.d("ContentLibrary", "Liberando recursos del DOT SDK")
             DotSdk.deinitialize()
             Log.d("ContentLibrary", "Recursos liberados correctamente")
         }
@@ -97,18 +92,10 @@ object ContentLibrary {
 
     /**
      * Convertir la imagen captura en formato JPEG a base64
-     * @param bgraRawImage Imagen captura en el proceso
+     * @param byteArray Imagen captura en el proceso
      * @return Imagen en formato base64
      */
-    fun imageToBase64(bgraRawImage: BgraRawImage): String {
-        // Convert BgraRawImage to Bitmap
-        val bitmap = BitmapFactory.create(bgraRawImage)
-
-        //Convert Bitmap to base64
-        val byteArrayOutputStream = ByteArrayOutputStream()
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream)
-        val byteArray = byteArrayOutputStream.toByteArray()
-
+    fun imageToBase64(byteArray: ByteArray): String {
         return Base64.encodeToString(byteArray, Base64.NO_WRAP)
     }
 
@@ -116,9 +103,9 @@ object ContentLibrary {
     /**
      * Conocer el estado del componente (inicializado o desinicializado)
      */
-    /*fun stateComponent(): Boolean {
+    fun stateComponent(): Boolean {
         return DotSdk.isInitialized()
-    }*/
+    }
 
     //To do: verificar si se necesita la función de inicialización
 }

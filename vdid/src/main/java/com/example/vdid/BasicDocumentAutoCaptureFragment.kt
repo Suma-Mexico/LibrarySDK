@@ -1,6 +1,6 @@
 package com.example.vdid
 
-//import android.graphics.Bitmap
+import android.graphics.Bitmap
 import android.os.Bundle
 //import android.util.Base64
 import android.view.View
@@ -18,11 +18,10 @@ import com.innovatrics.dot.document.autocapture.MrzValidation
 import com.innovatrics.dot.document.autocapture.PlaceholderType
 import com.innovatrics.dot.document.autocapture.QualityAttributeThresholds
 import com.innovatrics.dot.document.autocapture.ValidationMode
-//import com.innovatrics.dot.image.BgraRawImage
-//import com.innovatrics.dot.image.BitmapFactory
+import com.innovatrics.dot.image.BgraRawImage
+import com.innovatrics.dot.image.BitmapFactory
 import kotlinx.coroutines.launch
-
-//import java.io.ByteArrayOutputStream
+import java.io.ByteArrayOutputStream
 
 internal class BasicDocumentAutoCaptureFragment(
     private val listener: OnProcessListener
@@ -83,6 +82,14 @@ internal class BasicDocumentAutoCaptureFragment(
         return Base64.encodeToString(byteArray, Base64.NO_WRAP)
     }*/
 
+
+    private fun bgraRawImageToByteArray(bgraRawImage: BgraRawImage): ByteArray {
+        val bitmap = BitmapFactory.create(bgraRawImage)
+        val byteArrayOutputStream = ByteArrayOutputStream()
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream)
+        return byteArrayOutputStream.toByteArray()
+    }
+
     override fun onNoCameraPermission() {
         //Toast.makeText(context, "No camera permission.", Toast.LENGTH_SHORT).show()
         listener.onCaptureFailed("No camera pemission")
@@ -90,8 +97,9 @@ internal class BasicDocumentAutoCaptureFragment(
 
     override fun onCaptured(result: DocumentAutoCaptureResult) {
         //val img = imageToBase64(result.bgraRawImage)
-        //println("Result image base64 : ${img}")
-        listener.onDocumentCaptured(result.bgraRawImage)
+        val img = bgraRawImageToByteArray(result.bgraRawImage)
+        //println("Result image base64 : $img")
+        listener.onDocumentCaptured(img)
     }
 
     override fun onProcessed(detection: DocumentAutoCaptureDetection) {
