@@ -1,8 +1,8 @@
 package com.example.vdid
 
-import android.graphics.Bitmap
+//import android.graphics.Bitmap
 import android.os.Bundle
-import android.util.Base64
+//import android.util.Base64
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
@@ -18,18 +18,21 @@ import com.innovatrics.dot.document.autocapture.MrzValidation
 import com.innovatrics.dot.document.autocapture.PlaceholderType
 import com.innovatrics.dot.document.autocapture.QualityAttributeThresholds
 import com.innovatrics.dot.document.autocapture.ValidationMode
-import com.innovatrics.dot.image.BgraRawImage
-import com.innovatrics.dot.image.BitmapFactory
+//import com.innovatrics.dot.image.BgraRawImage
+//import com.innovatrics.dot.image.BitmapFactory
 import kotlinx.coroutines.launch
-import java.io.ByteArrayOutputStream
 
-internal class BasicDocumentAutoCaptureFragment(private val listener: OnProcessListener) :
-    DocumentAutoCaptureFragment() {
+//import java.io.ByteArrayOutputStream
+
+internal class BasicDocumentAutoCaptureFragment(
+    private val listener: OnProcessListener
+) : DocumentAutoCaptureFragment() {
     private val dotSdkViewModel: DotSdkViewModel by activityViewModels {
         DotSdkViewModelFactory(
             requireActivity().application
         )
     }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -46,9 +49,7 @@ internal class BasicDocumentAutoCaptureFragment(private val listener: OnProcessL
             isDetectionLayerVisible = false,
             mrzValidation = MrzValidation.NONE,
             qualityAttributeThresholds = QualityAttributeThresholds(
-                minConfidence = 0.95,
-                minSharpness = 0.6,
-                maxHotspotsScore = 0.6
+                minConfidence = 0.95, minSharpness = 0.6, maxHotspotsScore = 0.6
             )
         )
     }
@@ -70,7 +71,7 @@ internal class BasicDocumentAutoCaptureFragment(private val listener: OnProcessL
         dotSdkViewModel.initializeDotSdkIfNeeded()
     }
 
-    private fun imageToBase64(bgraRawImage: BgraRawImage): String {
+    /*private fun imageToBase64(bgraRawImage: BgraRawImage): String {
         // Convert BgraRawImage to Bitmap
         val bitmap = BitmapFactory.create(bgraRawImage)
 
@@ -80,7 +81,7 @@ internal class BasicDocumentAutoCaptureFragment(private val listener: OnProcessL
         val byteArray = byteArrayOutputStream.toByteArray()
 
         return Base64.encodeToString(byteArray, Base64.NO_WRAP)
-    }
+    }*/
 
     override fun onNoCameraPermission() {
         //Toast.makeText(context, "No camera permission.", Toast.LENGTH_SHORT).show()
@@ -88,9 +89,9 @@ internal class BasicDocumentAutoCaptureFragment(private val listener: OnProcessL
     }
 
     override fun onCaptured(result: DocumentAutoCaptureResult) {
-        val img = imageToBase64(result.bgraRawImage)
+        //val img = imageToBase64(result.bgraRawImage)
         //println("Result image base64 : ${img}")
-        listener.onDocumentCaptured(img)
+        listener.onDocumentCaptured(result.bgraRawImage)
     }
 
     override fun onProcessed(detection: DocumentAutoCaptureDetection) {
