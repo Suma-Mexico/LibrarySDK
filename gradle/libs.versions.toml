@@ -5,7 +5,7 @@ coreKtx = "1.15.0"
 fragmentKtx = "1.8.6"
 comInnovatricsDot = "8.7.0"
 androidxConstraintLayout = "2.2.0"
-comDepsSuma = "0.0.2-beta"
+comDepsSuma = "0.0.3"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
