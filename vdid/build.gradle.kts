@@ -47,7 +47,7 @@ publishing {
         create<MavenPublication>("release") {
             groupId = "com.example"
             artifactId = "vdid"
-            version = "2.0.3"
+            version = "2.0.4-beta"
 
             afterEvaluate {
                 from(components["release"])
@@ -59,6 +59,16 @@ publishing {
 dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.fragment.ktx)
-    implementation(libs.com.innovatrics.dot.document)
     implementation(libs.androidx.constraintlayout)
+    //implementation(libs.com.innovatrics.dot.document)
+    implementation(libs.suma.library.aar)
+}
+
+configurations.named("implementation") {
+    isCanBeResolved = true
+}
+
+tasks.register<Copy>("copyDependencies") {
+    from(configurations.getByName("implementation"))
+    into("libs")
 }

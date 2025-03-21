@@ -18,9 +18,10 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        maven {
+        /*maven {
             url = URI("https://maven.innovatrics.com/releases")
-        }
+        }*/
+        maven { url = uri("https://jitpack.io") }
     }
 }
 
