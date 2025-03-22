@@ -47,7 +47,7 @@ publishing {
         create<MavenPublication>("release") {
             groupId = "com.example"
             artifactId = "vdid"
-            version = "2.0.5-beta"
+            version = "2.0.6-beta"
 
             afterEvaluate {
                 from(components["release"])
@@ -62,6 +62,7 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     //implementation(libs.com.innovatrics.dot.document)
     implementation(libs.suma.library.aar)
+    implementation(libs.androidx.camera.view)
 }
 
 configurations.named("implementation") {
